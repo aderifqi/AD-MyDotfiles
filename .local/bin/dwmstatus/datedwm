@@ -1,0 +1,26 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+datedwm = BaseProgram(
+    "setsid -f $TERMINAL -g 100x40 -t calcurse -e calcurse",
+    None,
+    currentFile,
+)
+
+### get current date
+currentDate = dtm.now().strftime("%a(%d/%m/%y)%H:%M")
+
+### icon
+icon = " "
+
+### add statusbar
+# add 
+datedwm.statusbar = '{}{}'.format(icon, currentDate)
+
+# run script
+datedwm.run()

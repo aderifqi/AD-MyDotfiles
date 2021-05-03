@@ -1,0 +1,29 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+### instance
+filesystem = BaseProgram(
+    'notify-send "💽 Disk space" "$(df -h --output=target,used,avail,size)"',
+    'None',
+    currentFile,
+)
+
+### get available size of  root filesystem
+filesystemInfo = subprocess.run(["df", "-h", "/"], stdout=subprocess.PIPE).stdout.decode()
+# pattern
+p = re.compile("\d+")
+filesystemInfo = p.findall(filesystemInfo)[3]
+
+### icon
+icon = " "
+
+### add statusbar
+filesystem.statusbar = '{}{}'.format(icon, filesystemInfo)
+
+# run script
+filesystem.run()

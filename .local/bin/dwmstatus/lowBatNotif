@@ -1,0 +1,25 @@
+#!/usr/bin/sh
+# low battery notification
+msgId="991049"
+#battery="/sys/class/power_supply/BAT?"
+#status=$(cat $battery/status)
+#capacity=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+##logger "run battery notify"
+while [ true ];do
+    acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+          read -r status capacity
+					if [ $capacity -ge 95 ] && ["$status" = "Charging"]; then
+						notify-send "Battery Full" "Level: ${capacity}%"
+						#paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga
+					elif [ "$capacity" -le 20 ] && [ "$status" = "Discharging" ]; then
+						if [ "$capacity" -le 7 ]; then
+							dunstify -a "lowBat" -u critical 'Notifications' -r $msgId  'laptop will be soon shutdowm '
+						else
+							dunstify -a "lowBat"  'Notifications' -r $msgId  "Battey running low $capacity%"
+						fi
+          fi
+		}
+  sleep 60
+done
+
+	

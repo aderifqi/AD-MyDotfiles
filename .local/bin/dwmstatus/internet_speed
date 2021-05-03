@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+interface=wlan0
+
+[ $(cat /sys/class/net/enp2s0/operstate 2>/dev/null) = 'up'  ] && interface="enp2s0"
+
+down=$(ifstat2 -i $interface 1 1 |awk 'NR%3==0{print $1  }')
+up=$(ifstat2 -i $interface 1 1 |awk 'NR%3==0{print $2  }')
+
+if [ $(cat /sys/class/net/$interface/operstate 2>/dev/null) = 'up' ];then
+	printf "  %s " "$down"
+	printf " %s" "$up"
+fi

@@ -1,0 +1,32 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+### instance
+# restart script
+restart = '&& pkill -RTMIN+18 ${STATUSBAR:-dwmblocks}'
+# object / instansiate
+backlight = BaseProgram(
+    None,
+    None,
+    currentFile,
+    f"brightnessctl s +50 {restart}",
+    f"brightnessctl s 50- {restart}",
+)
+
+### get current backlight
+currentBlg = subprocess.run('brightnessctl', stdout=subprocess.PIPE).stdout.decode()
+currentBlg = re.findall("\(([\d]+)%", currentBlg)[0]
+
+# icon
+icon = ' '
+
+# add to statusbar
+backlight.statusbar = '{}{}'.format(icon, currentBlg)
+
+# run
+backlight.run()

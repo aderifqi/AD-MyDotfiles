@@ -1,0 +1,54 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+
+class Battery(BaseProgram):
+
+    # set statusbar from  battery status
+    def status_icon(self, status, icon=None):
+        if icon is not None:
+            return icon
+        if status == "Full":
+            return ""
+        if status == "Discharging":
+            return ""
+        if status == "Charging":
+            return " "
+        if status == "Not charging":
+            return "🛑"
+        if status == "Unknown":
+            return ""
+        else :
+            return "Wrong Battery Status | Read the Log"
+
+battery = Battery(
+    "$TERMINAL -e htop",
+    None,
+    currentFile,
+)
+
+
+# battery status
+batStatus = glob('/sys/class/power_supply/BAT?/status')[0]
+batStatus = battery.get_file(batStatus)
+
+# battery capacity
+batCapacity = '/sys/class/power_supply/BAT0/capacity'
+batCapacity = battery.get_file(batCapacity)
+
+# if battery is exist && capacity is low then 10 warn icon 
+batCapacity = " ❗"  if batCapacity != False and isinstance(batCapacity, int) and  batCapacity <= 10 else ''
+
+# set statusbar  as icon
+batStatus = battery.status_icon(batStatus)
+
+# add to statusbar
+battery.statusbar = '{}{}'.format(batStatus,batCapacity)
+
+# run script
+battery.run()

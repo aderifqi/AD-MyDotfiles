@@ -1,0 +1,26 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+#### instance
+volume = BaseProgram(
+	'pavucontrol',
+	'pamixer --allow-boost -i 1',
+	'pamixer --allow-boost -d 1',
+  currentFile,
+)
+vol = subprocess.run(["pamixer", "--get-volume"], stdout=subprocess.PIPE).stdout.decode()
+### icon
+get_mute = subprocess.run(["pamixer", "--get-mute"], stdout=subprocess.PIPE).stdout.decode().strip()
+
+icon='遼' if get_mute == 'true' else '墳 {}'.format(vol)
+
+# add 
+volume.statusbar= '{}'.format(icon)
+# run script
+volume.run()
+

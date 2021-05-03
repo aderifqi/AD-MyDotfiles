@@ -1,0 +1,18 @@
+#!/bin/env python
+
+from Base import *
+### get current file location
+currentFile = pathlib.Path(__file__)
+user = BaseProgram(
+    'powermenu',
+    None,
+    currentFile
+)
+
+icon = 'ﴫ '
+
+### add statusbar
+user.statusbar= icon
+# run script
+user.run()
+

@@ -1,0 +1,29 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+#### instance
+internet = BaseProgram(
+    'None',
+    'None',
+    currentFile,
+)
+### internet interface status
+# get status 
+eth  = internet.get_file(glob('/sys/class/net/e*/operstate')[0])
+wifi = internet.get_file(glob('/sys/class/net/w*/operstate')[0])
+vpn =  glob('/sys/class/net/tun?/operstate')
+vpn  = internet.get_file(vpn[0] if len(vpn) != 0 else '')
+### icon
+# if status internet is on
+eth = '' if eth == 'up' else ''
+wifi = ' ' if wifi == 'up' else '📶 '
+vpn = ' ' if vpn != False else ''
+# add 
+internet.statusbar= '{}{}{}'.format(wifi, eth, vpn)
+# run script
+internet.run()

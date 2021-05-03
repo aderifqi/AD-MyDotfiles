@@ -1,0 +1,23 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+#### instance
+memory = BaseProgram(
+    'notify-send "🧠 Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)"',
+    'None',
+    currentFile,
+)
+### memory interface status
+# get ram used
+ram_used = psutil.virtual_memory().used // 1024 // 1024 / 1000
+### icon
+icon = ' '
+# add 
+memory.statusbar= '{}{:.1f}'.format(icon, ram_used)
+# run script
+memory.run()
+##free --mebi | sed -n '2{p;q}' | awk '{printf ("🧠%2.2fGiB/%2.2fGiB\n", ( $3 / 1024), ($2 / 1024))}' #free --mebi | sed -n '2{p;q}' | awk '{printf (" %1.1f\n", ( $3 / 1024))}'

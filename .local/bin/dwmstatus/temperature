@@ -1,0 +1,22 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+### instance
+temperature = BaseProgram(
+    'notify-send " CPU hogs" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)\\n(100% per core)"',
+    'None',
+    currentFile
+)
+
+temp  = str(temperature.get_file(glob('/sys/class/thermal/thermal_zone0/temp')[0]))
+
+### icon
+icon = ' '
+### add statusbar
+temperature.statusbar= '{}{}'.format(icon, temp[:2])
+# run script
+temperature.run()

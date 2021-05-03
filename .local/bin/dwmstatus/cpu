@@ -1,0 +1,30 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+
+### instance
+cpu = BaseProgram(
+    None,
+    None,
+    currentFile
+)
+
+### get current cpu
+cpuInfo = subprocess.run("mpstat", stdout=subprocess.PIPE).stdout.decode()
+# pattern
+p = re.compile("\d+")
+# current cpu usage 
+cpuInfo = p.findall(re.findall('all\s+[\d]+', cpuInfo)[0])[0]
+
+### icon
+icon = " "
+
+### add statusbar
+cpu.statusbar = '{}{}'.format(icon, cpuInfo)
+
+# run script
+cpu.run()

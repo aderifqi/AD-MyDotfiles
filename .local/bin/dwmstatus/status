@@ -1,0 +1,15 @@
+#!/usr/bin/sh
+
+#if pgrep -x openvpn > /dev/null ;then
+        #vpn=' '
+#fi
+#vpn=$(sed "s/.*//" /sys/class/net/tun*/operstate 2>/dev/null)
+
+if pgrep -x ffmpeg > /dev/null ;then
+        record=' '
+fi
+
+if [ $(xset q | grep -i 'caps lock' | awk '{print $4}') = 'on' ];then 
+        xkeyboard=' '
+fi
+echo "$record$vpn$xkeyboard" 
