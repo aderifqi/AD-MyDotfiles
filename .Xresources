@@ -1,3 +1,6 @@
+#include "/home/ad/.Xresources.d/color/base16-gruvbox-dark-hard.Xresources"
+#include "/home/ad/.Xresources.d/st"
+
 
 !-- Xft settings -- !
 !Xft.dpi:        96
@@ -6,10 +9,7 @@
 !Xft.hinting:    true
 !Xft.hintstyle:  hintfull
 
-XTerm.vt100.faceName:FiraCode NF:style=Retina:pixelsize=13
-!-- st settings --!
-st.font             : FiraCode NF:style=Retina:pixelsize=14
-!st.cursorcolor      : #4A577D
+!XTerm.vt100.faceName:FiraCode NF:style=Retina:pixelsize=13
 !
 !
 !-- dwm settings --!
@@ -80,78 +80,57 @@ st.font             : FiraCode NF:style=Retina:pixelsize=14
 
 !### gruvbox color schema ###
 
-dwm.normbordercolor : #32302F
-dwm.normbgcolor     : #1D2021
-dwm.normfgcolor     : #e6d4a3
-!active border
-dwm.selbordercolor  : #B73E04
-!active windows
-dwm.selbgcolor      : #3C3836
-!font
-dwm.selfgcolor      : #D5C4A1
+!dwm.normbordercolor : #32302F
+!dwm.normbgcolor     : #1D2021
+!dwm.normfgcolor     : #e6d4a3
+!!active border
+!dwm.selbordercolor  : #B73E04
+!!active windows
+!dwm.selbgcolor      : #3C3836
+!!font
+!dwm.selfgcolor      : #D5C4A1
 
 !Generated with :
 !XRDB2Xreources.py
 
-*.foreground:  #e6d4a3
-*.background:  #1e1e1e
-*.cursorColor: #e6d4a3
-!
-! Black
-*.color0:      #1e1e1e
-*.color8:      #7f7061
-!
-! Red
-*.color1:      #be0f17
-*.color9:      #f73028
-!
-! Green
-*.color2:      #868715
-*.color10:     #aab01e
-!
-! Yellow
-*.color3:      #cc881a
-*.color11:     #f7b125
-!
-! Blue
-*.color4:      #377375
-*.color12:     #719586
-!
-! Magenta
-*.color5:      #a04b73
-*.color13:     #c77089
-!
-! Cyan
-*.color6:      #578e57
-*.color14:     #7db669
-!
-! White
-*.color7:      #978771
-*.color15:     #e6d4a3
-!
-! Bold, Italic, Underline
-*.colorBD:     #ffffff
-*.colorIT:
-*.colorUL:
+!*.foreground:  #e6d4a3
+!*.background:  #1e1e1e
+!*.cursorColor: #e6d4a3
 !!
-
-
-! Dracula Xresources palette
-!*.foreground : #f8f8f2
-!*.background : #282a36
-!*.color1     : #ff5555        
-!*.color2     : #50fa7b        
-!*.color3     : #f1fa8c        
-!*.color4     : #bd93f9        
-!*.color5     : #ff79c6        
-!*.color6     : #8be9fd        
-!*.color7     : #bbbbbb        
-!*.color8     : #44475a
-!*.color9     : #ff5555
-!*.color10    : #50fa7b
-!*.color11    : #f1fa8c
-!*.color12    : #9369CF
-!*.color13    : #ff79c6
-!*.color14    : #8be9fd
-!*.color15    : #ffffff
-
+!! Black
+!*.color0:      #1e1e1e
+!*.color8:      #7f7061
+!!
+!! Red
+!*.color1:      #be0f17
+!*.color9:      #f73028
+!!
+!! Green
+!*.color2:      #868715
+!*.color10:     #aab01e
+!!
+!! Yellow
+!*.color3:      #cc881a
+!*.color11:     #f7b125
+!!
+!! Blue
+!*.color4:      #377375
+!*.color12:     #719586
+!!
+!! Magenta
+!*.color5:      #a04b73
+!*.color13:     #c77089
+!!
+!! Cyan
+!*.color6:      #578e57
+!*.color14:     #7db669
+!!
+!! White
+!*.color7:      #978771
+!*.color15:     #e6d4a3
+!!
+!! Bold, Italic, Underline
+!*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:
+!!!
