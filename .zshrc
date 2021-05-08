@@ -13,6 +13,9 @@ export PATH="/home/ad/venv/python/bin:${PATH}"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ad/.oh-my-zsh"
 
+# Docker 
+export CURRENT_UID=$(id -u):$(id -g)
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
