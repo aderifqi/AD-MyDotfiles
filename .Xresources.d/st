@@ -1,2 +1,3 @@
-st.font             : FiraCode NF:style=Retina:pixelsize=14
+!st.font             : FiraCode NF:style=Retina:pixelsize=14
+st.font             :  JetBrains Mono NL:pixelsize=15
 !st.cursorcolor      : #4A577D

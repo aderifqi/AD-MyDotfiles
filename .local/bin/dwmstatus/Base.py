@@ -8,6 +8,7 @@ import pathlib
 import subprocess # run linux 
 import re
 import sys
+import time
 from glob import glob # Unix style pathname
 import inspect
 from datetime import datetime as dtm
