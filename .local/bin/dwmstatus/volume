@@ -9,10 +9,10 @@ currentFile = pathlib.Path(__file__)
 #### instance
 volume = BaseProgram(
     'pavucontrol',
-    'pamixer -t',
+    'volKey m',
     currentFile,
-    'pamixer --allow-boost -i 1',
-    'pamixer --allow-boost -d 1',
+    'volKey +',
+    'volKey -',
 )
 vol = subprocess.run(["pamixer", "--get-volume"], stdout=subprocess.PIPE).stdout.decode()
 ### icon

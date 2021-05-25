@@ -20,7 +20,7 @@ export EDITOR='nvim'
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # ibus input change
-#export GTK_IM_MODULE=ibus
-#export QT_IM_MODULE=ibus
-#export XMODIFIERS=@im=ibus
-#ibus-daemon -drx
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+ibus-daemon -drx
