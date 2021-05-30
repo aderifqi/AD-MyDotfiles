@@ -13,6 +13,18 @@ export PATH="/home/ad/venv/python/bin:${PATH}"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ad/.oh-my-zsh"
 
+# flutter 
+export PATH="${PATH}:/home/ad/bin/flutter/bin"
+# android studio
+export PATH="${PATH}:/home/ad/bin/android-studio/bin"
+#
+# react
+export ANDROID_HOME=$HOME/bin/android-sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Docker 
 export CURRENT_UID=$(id -u):$(id -g)
 
