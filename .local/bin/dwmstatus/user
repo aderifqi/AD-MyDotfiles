@@ -1,5 +1,4 @@
 #!/bin/env python
-
 from Base import *
 ### get current file location
 currentFile = pathlib.Path(__file__)
@@ -15,4 +14,3 @@ icon = 'ﴫ '
 user.statusbar= icon
 # run script
 user.run()
-

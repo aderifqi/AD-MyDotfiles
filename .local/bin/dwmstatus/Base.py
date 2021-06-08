@@ -16,7 +16,7 @@ import psutil
 
 class BaseProgram:
     __statusbar = ''
-    envronment = "BLOCK_BUTTON" #button
+    environment = "BUTTON" #button
 
     ## mouse button
     #  button1    = left button  
@@ -88,9 +88,10 @@ class BaseProgram:
     def run(self):
         try :
             ### if clicked
-            if self.envronment in os.environ:
+            # self.execute(f'dunstify {os.environ["BUTTON"]}')
+            if self.environment in os.environ:
                 # get button 
-                getBtn = os.environ["BLOCK_BUTTON"]
+                getBtn = os.environ[f'{self.environment}']
 
                 # click
                 self.click(getBtn)
