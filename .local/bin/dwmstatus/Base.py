@@ -16,7 +16,7 @@ import psutil
 
 class BaseProgram:
     __statusbar = ''
-    environment = "BUTTON" #button
+    environment = "BLOCK_BUTTON" #button
 
     ## mouse button
     #  button1    = left button  

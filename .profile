@@ -19,13 +19,11 @@ export EDITOR='nvim'
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-# vulkan 
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 ## ibus input change
-##export GTK_IM_MODULE=ibus
-##export QT_IM_MODULE=ibus
-##export XMODIFIERS=@im=ibus
-##ibus-daemon -drx
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+ibus-daemon -drx
 
 
 ##export ZRAM_GENERATOR_ROO/

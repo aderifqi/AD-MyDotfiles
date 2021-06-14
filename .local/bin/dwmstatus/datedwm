@@ -7,20 +7,21 @@ from Base import *
 currentFile = pathlib.Path(__file__)
 
 datedwm = BaseProgram(
-    "setsid -f $TERMINAL -g 100x40 -t calcurse -e calcurse",
+    "setsid -f $TERMINAL -g 100x30 -t calcurse -e calcurse",
     None,
     currentFile,
 )
 
 ### get current date
-currentDate = dtm.now().strftime("%a(%d/%m/%y)%H:%M")
+# currentDate = dtm.now().strftime("%a(%d/%m/%y)%H:%M")
+currentTime = dtm.now().strftime("%H:%M")
 
 ### icon
 icon = " "
 
 ### add statusbar
-# add 
-datedwm.statusbar = '{}{}'.format(icon, currentDate)
+# add
+datedwm.statusbar = '{}{}'.format(icon, currentTime)
 
 # run script
 datedwm.run()

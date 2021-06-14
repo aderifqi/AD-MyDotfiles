@@ -15,7 +15,11 @@ export PATH="/home/ad/venv/python/bin:${PATH}"
 export PATH="${PATH}:/home/ad/bin/flutter/bin"
 # android studio
 export PATH="${PATH}:/home/ad/bin/android-studio/bin"
+# npm
+export npm_config_prefix="$HOME/.local"
 #
+# vulkan 
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 # react
 export ANDROID_HOME=$HOME/bin/android-sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
