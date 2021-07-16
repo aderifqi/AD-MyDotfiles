@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+if pgrep -f screencast  > /dev/null;then
+	echo " REC"
+else
+	echo " "
+fi

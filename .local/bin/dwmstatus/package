@@ -1,0 +1,23 @@
+#!/bin/env python
+
+### import main class 
+from Base import *
+
+### get current file location
+currentFile = pathlib.Path(__file__)
+#### instance
+package = BaseProgram(
+    'setsid -f $TERMINAL -g 100x30 -t popupgrade popupgrade',
+    'None',
+    currentFile,
+)
+### package interface status
+# get ram used
+pack =subprocess.run("pacman -Qu | wc -l",shell=True, stdout=subprocess.PIPE).stdout.decode()
+### icon
+icon = '📦 '
+# add 
+package.statusbar= '{}{}'.format(icon, pack)
+# run script
+package.run()
+#pacman -Qu | grep -Fcv "[ignored]" | sed "s/^/📦/;s/^📦0$//g"

@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+make && sudo make clean install
+sleep 0.3
+#suckclean

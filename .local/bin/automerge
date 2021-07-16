@@ -1,0 +1,32 @@
+#!/usr/bin/sh
+
+log=$(git branch > logBranch.txt)
+sleep 1
+currentbranch=$(cat logBranch.txt | grep "*" |  sed 's/*\(.*\)/\1/' )
+
+# check what current branch
+if [ $currentbranch != "master" ];then
+	echo "git checkout master";git checkout master
+	sleep 0.3
+	printf "\n"
+fi
+
+declare -a branch
+branch=$(cat logBranch.txt|  sed 's/*//' )
+
+for x in $branch; do
+	if [ $x = "master" ]; then
+		continue
+	fi
+	if [ $x = "barpadding" ]; then
+		continue
+	fi
+	echo "git merge $x -m Merge branch  '$x'  into merges" ;
+	git merge $x -m "Merge branch  '$x' into merges"
+ 
+	printf "\n"
+	sleep 0.5	
+	
+done
+clean="rm -f logBranch.txt"
+echo $clean;$clean

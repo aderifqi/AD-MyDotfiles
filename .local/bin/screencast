@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/themes/gruvbox-dark.rasi"
+
+# Options
+options="record\npause\nstart\nstop"
+chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 3  -lines 4 -width 300  -p 'screnncast' )"
+
+screancast(){
+	ffmpeg \
+	-f pulse  -ac 2 -ar 44100 -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor \
+	-f pulse -ac 2 -ar 44100 -i alsa_input.pci-0000_00_1b.0.analog-stereo \
+	-filter_complex amix=inputs=2 \
+	-f x11grab -r 30 -s 1366X768 \
+	-i $DISPLAY -c:v libx264 -c:a aac \
+  -profile:v high -level 3.0 -pix_fmt yuv420p \
+	"$HOME/Videos/screencast/screencast_$(date '+%Y%m%d-%H%M-%S').mp4"
+}
+
+
+case $chosen in
+   record)
+      screancast 
+
+      ;;
+   pause)
+      kill -STOP $(pgrep -x ffmpeg)
+      ;;
+   start)
+      kill -CONT $(pidof ffmpeg)
+      ;;
+   stop)
+      pkill -f ffmpeg 
+      ;;
+esac
+
+#if pgrep -f ffmpeg > /dev/null;then
+	#pkill -f  ffmpeg	
+#else 
+	#screancast
+#fi
+##pause
+#kill -STOP <pid>
+##play 
+#kill -CONT <pid>

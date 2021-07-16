@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/themes/gruvbox-dark.rasi"
+
+# Options
+options="ssh\nopenvpn"
+chosen="$(echo -e "$options" | $rofi_command -dmenu  -lines 5 -width 300 -selected-row 2 -p 'tunnel' )"
+
+
+case $chosen in
+    ssh)
+       ~/.config/ssh/ssh_rofi 
+        ;;
+    openvpn)
+       ~/.config/openvpn/openvpn_rofi 
+        ;;
+esac

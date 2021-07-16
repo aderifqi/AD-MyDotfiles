@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+
+while [ true ];do
+    acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+          read -r status capacity
+          if [ "$status" = "Discharging" -a "$capacity" -lt 5 ]; then
+            logger "Critical battery threshold"
+            pkill -f  dunstify
+            sleep 1
+            sudo systemctl hibernate
+          fi
+  }
+  sleep 60
+done

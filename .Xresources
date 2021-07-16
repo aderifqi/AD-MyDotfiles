@@ -9,7 +9,7 @@
 !Xft.hinting:    true
 !Xft.hintstyle:  hintfull
 
-!XTerm.vt100.faceName:FiraCode NF:style=Retina:pixelsize=13
+XTerm.vt100.faceName:FiraCode NF:style=Retina:pixelsize=13
 !
 !
 !-- dwm settings --!
