@@ -4,5 +4,5 @@ flameshot gui --raw > /tmp/image.png
 convert /tmp/image.png -bordercolor "#F4E7D9" -border 4 /tmp/image.png
 convert /tmp/image.png \( +clone -background black -shadow 40x5+0+0 \) \
         +swap -background none -layers merge +repage /tmp/image.png; \
-convert /tmp/image.png -bordercolor "#282828" -border 10 /tmp/image.png
+convert /tmp/image.png -bordercolor "#8EBF7C" -border 10 /tmp/image.png 
 xclip -selection clipboard -i /tmp/image.png -t image/png
