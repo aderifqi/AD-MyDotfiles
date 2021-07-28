@@ -1,0 +1,24 @@
+/* Confirm Dialog */
+
+@import "styles/colors.rasi"
+
+* {
+    background-color:       @background;
+    text-color:             @foreground;
+	  font:				 	          "Fira Code Retina 11";
+}
+
+window {
+    width:      			250px;
+    padding:    			25px;
+    border:					1px;
+    border-radius:          0px;
+    border-color:           @foreground;
+    location:               center;
+    y-offset:               -2em;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@foreground;
+}
