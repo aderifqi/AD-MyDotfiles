@@ -18,6 +18,7 @@ currentTime = dtm.now().strftime("%H:%M")
 
 ### icon
 icon = " "
+icon = "📅 "
 
 ### add statusbar
 # add

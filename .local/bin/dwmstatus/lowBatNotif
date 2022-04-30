@@ -8,16 +8,24 @@ msgId="991049"
 while [ true ];do
     acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
           read -r status capacity
-					if [ $capacity -ge 95 ] && ["$status" = "Charging"]; then
-						notify-send "Battery Full" "Level: ${capacity}%"
-						#paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga
-					elif [ "$capacity" -le 20 ] && [ "$status" = "Discharging" ]; then
-						if [ "$capacity" -le 7 ]; then
-							dunstify -a "lowBat" -u critical 'Notifications' -r $msgId  'laptop will be soon shutdowm '
-						else
-							dunstify -a "lowBat"  'Notifications' -r $msgId  "Battey running low $capacity%"
+					if [ "$capacity" -eq 100 ]; then
+							dunstify "Battery Full" -r $msgId "Level: ${capacity}%"
+					fi
+					if [ "$status" = "Charging" ]; then
+						if [ "$capacity" -ge 95 ]; then
+							dunstify "Battery Full" -r $msgId "Level: ${capacity}%"
+							#paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga
 						fi
           fi
+					if [ "$status" = "Discharging" ]; then
+						if [ "$capacity" -le 7 ]; then
+							dunstify -a "lowBat" -u critical 'Notifications' -r $msgId  'laptop will be soon shutdowm '
+							sudo systemctl hibernate
+						elif [ "$capacity" -le 20 ];then
+							dunstify -a "lowBat"  'Notifications' -r $msgId  "Battey running low $capacity%"
+						fi
+					fi
+
 		}
   sleep 60
 done

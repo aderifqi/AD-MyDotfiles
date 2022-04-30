@@ -1,4 +1,5 @@
 #include "/home/ad/.Xresources.d/color/base16-gruvbox-dark-hard.Xresources"
+#include "/home/ad/.Xresources.d/color/gruvbox-material.Xresources"
 #include "/home/ad/.Xresources.d/st"
 
 

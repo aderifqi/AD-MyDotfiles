@@ -7,4 +7,4 @@
  *
  */
 
-@import "./gruvboxDark.rasi"
+@import "gruvboxDark.rasi"

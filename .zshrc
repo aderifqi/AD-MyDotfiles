@@ -169,6 +169,13 @@ alias config="nvim /home/ad/.config/suckless"
 alias apy="source /home/ad/bin/anaconda3/bin/activate;conda init"
 alias ipy="ipython"
 alias py="python"
+alias start="systemctl start"
+alias status="systemctl status"
+alias restart="systemctl restart"
+alias stop="systemctl stop"
+alias tb='taskbook'
+
+
 
 # for pacman 
 alias upd="yay -Syy"

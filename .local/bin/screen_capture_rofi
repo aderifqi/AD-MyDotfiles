@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -theme $HOME/.config/rofi/themes/gruvbox-dark.rasi"
+
+# Options
+options="scrot\ncapture\nflameshot"
+chosen="$(echo -e "$options" | $rofi_command -dmenu  -lines 5 -width 300 -selected-row 0 -p 'screen capture' )"
+
+
+case $chosen in
+    scrot)
+       scrot %Y.%m.%d.%T-$wx$h.png --quality 100 -e 'mv $f /home/ad/Pictures/shots/' && dunstify  -r 90105 'Print screen'
+        ;;
+    capture)
+       /home/ad/.local/bin/capture 
+        ;;
+    flameshot)
+       /usr/bin/flameshot gui 
+        ;;
+esac

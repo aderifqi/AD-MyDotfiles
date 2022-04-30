@@ -42,13 +42,13 @@ batCapacity = '/sys/class/power_supply/BAT0/capacity'
 batCapacity = battery.get_file(batCapacity)
 
 # if battery is exist && capacity is low then 10 warn icon 
-batCapacity = " ❗"  if batCapacity != False and isinstance(batCapacity, int) and  batCapacity <= 10 else ''
+batCapacity = " ❗"  if batCapacity != False and isinstance(batCapacity, int) and  batCapacity <= 10 else batCapacity
 
 # set statusbar  as icon
 batStatus = battery.status_icon(batStatus)
 
 # add to statusbar
-battery.statusbar = '{}{}'.format(batStatus,batCapacity)
+battery.statusbar = '{} {}'.format(batStatus,batCapacity)
 
 # run script
 battery.run()

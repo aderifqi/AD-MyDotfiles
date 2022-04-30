@@ -18,7 +18,7 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-@import "styles/colors.rasi"
+@import "styles/gruvboxDark.rasi"
 
 window {
     transparency:                   "real";

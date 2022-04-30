@@ -2,8 +2,7 @@
 export IDENTIFIER="unicode"
 while true 
 do 
-	xsetroot -name "$(cpu) $(internet_speed) $(volume) $(backlight_dwm) $(battery)  $(datedwm) $(internet)AD "
+	xsetroot -name "$(cpu) $(internet_speed) $(volume) $(backlight_dwm)  $(datedwm) $(internet) AD"
 	sleep 1 #     not sloppy.
-
 done
 
