@@ -9,7 +9,7 @@ chosen="$(echo -e "$options" | $rofi_command -dmenu  -lines 5 -width 300 -select
 
 case $chosen in
     scrot)
-       scrot %Y.%m.%d.%T-$wx$h.png --quality 100 -e 'mv $f /home/ad/Pictures/shots/' && dunstify  -r 90105 'Print screen'
+       scrot -d 1 %Y.%m.%d.%T-$wx$h.png --quality 100 -e 'mv $f /home/ad/Pictures/shots/' && dunstify  -r 90105 'Print screen'
         ;;
     capture)
        /home/ad/.local/bin/capture 
